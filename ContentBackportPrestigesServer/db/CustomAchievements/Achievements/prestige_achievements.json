@@ -1,0 +1,206 @@
+[
+  {
+    "id": "6842c25bd02bc07d70054019",
+    "imageUrl": "/files/achievement/6842ed6d63aa5a028f060067.png",
+    "assetPath": "",
+    "rewards": [],
+    "conditions": {
+      "availableForFinish": [
+        {
+          "index": 1,
+          "dynamicLocale": false,
+          "visibilityConditions": [],
+          "globalQuestCounterId": "",
+          "parentId": "",
+          "dialogId": null,
+          "entryPoint": null,
+          "fromTraderId": null,
+          "id": "6842c24eb6cae20ef7c85566",
+          "props": {
+            "index": 1,
+            "dynamicLocale": false,
+            "visibilityConditions": [],
+            "globalQuestCounterId": "",
+            "parentId": "",
+            "entryPoint": null,
+            "dialogId": null,
+            "fromTraderId": null
+          },
+          "questNoteId": null,
+          "conditionType": "Block"
+        }
+      ],
+      "fail": []
+    },
+    "instantComplete": false,
+    "showNotificationsInGame": false,
+    "showProgress": false,
+    "prefab": "",
+    "rarity": "Legendary",
+    "hidden": true,
+    "showConditions": false,
+    "progressBarEnabled": false,
+    "side": "All",
+    "index": 99999
+  },
+  {
+    "id": "6842c27a38482d35ac0bd847",
+    "imageUrl": "/files/achievement/6842ed72d45aa050af0dd087.png",
+    "assetPath": "",
+    "rewards": [],
+    "conditions": {
+      "availableForFinish": [
+        {
+          "index": 1,
+          "dynamicLocale": false,
+          "visibilityConditions": [],
+          "globalQuestCounterId": "",
+          "parentId": "",
+          "dialogId": null,
+          "entryPoint": null,
+          "fromTraderId": null,
+          "id": "6842c24eb6cae20ef7c85566",
+          "props": {
+            "index": 1,
+            "dynamicLocale": false,
+            "visibilityConditions": [],
+            "globalQuestCounterId": "",
+            "parentId": "",
+            "entryPoint": null,
+            "dialogId": null,
+            "fromTraderId": null
+          },
+          "questNoteId": null,
+          "conditionType": "Block"
+        }
+      ],
+      "fail": []
+    },
+    "instantComplete": false,
+    "showNotificationsInGame": false,
+    "showProgress": false,
+    "prefab": "",
+    "rarity": "Legendary",
+    "hidden": true,
+    "showConditions": false,
+    "progressBarEnabled": false,
+    "side": "All",
+    "index": 99999
+  },
+  {
+    "id": "68d3fe84757f8967ec09099b",
+    "imageUrl": "/files/achievement/6842ed7a1e3a7aec7203cb37.png",
+    "assetPath": "",
+    "rewards": [
+      {
+        "unknown": true,
+        "gameMode": [],
+        "availableInGameEditions": [],
+        "illustrationConfig": {
+          "image": "",
+          "bigImage": "",
+          "isBigImage": false
+        },
+        "isHidden": false,
+        "isImportant": false,
+        "id": "68f68b1b70a1583e2f49f0e8",
+        "target": "694fe70ce10505a1be0d321d",
+        "traderId": 10,
+        "loyaltyLevel": 1,
+        "items": [
+          {
+            "_id": "694fe70ce10505a1be0d321d",
+            "_tpl": "68f11adfcd0babab2c0fb003",
+            "upd": {
+              "SpawnedInSession": true,
+              "StackObjectsCount": 1
+            }
+          }
+        ],
+        "type": "ProductionScheme"
+      }
+    ],
+    "conditions": {
+      "availableForFinish": [
+        {
+          "index": 1,
+          "dynamicLocale": false,
+          "visibilityConditions": [],
+          "globalQuestCounterId": "",
+          "parentId": "",
+          "dialogId": null,
+          "entryPoint": null,
+          "fromTraderId": null,
+          "id": "6842c24eb6cae20ef7c85566",
+          "props": {
+            "index": 1,
+            "dynamicLocale": false,
+            "visibilityConditions": [],
+            "globalQuestCounterId": "",
+            "parentId": "",
+            "entryPoint": null,
+            "dialogId": null,
+            "fromTraderId": null
+          },
+          "questNoteId": null,
+          "conditionType": "Block"
+        }
+      ],
+      "fail": []
+    },
+    "instantComplete": false,
+    "showNotificationsInGame": false,
+    "showProgress": false,
+    "prefab": "",
+    "rarity": "Legendary",
+    "hidden": true,
+    "showConditions": false,
+    "progressBarEnabled": false,
+    "side": "All",
+    "index": 99999
+  },
+  {
+    "id": "68d3ff840531ed76e808866c",
+    "imageUrl": "/files/achievement/68f0f261e34f88d6ef0a8c9b.png",
+    "assetPath": "",
+    "rewards": [],
+    "conditions": {
+      "availableForFinish": [
+        {
+          "index": 1,
+          "dynamicLocale": false,
+          "visibilityConditions": [],
+          "globalQuestCounterId": "",
+          "parentId": "",
+          "dialogId": null,
+          "entryPoint": null,
+          "fromTraderId": null,
+          "id": "6842c24eb6cae20ef7c85566",
+          "props": {
+            "index": 1,
+            "dynamicLocale": false,
+            "visibilityConditions": [],
+            "globalQuestCounterId": "",
+            "parentId": "",
+            "entryPoint": null,
+            "dialogId": null,
+            "fromTraderId": null
+          },
+          "questNoteId": null,
+          "conditionType": "Block"
+        }
+      ],
+      "fail": []
+    },
+    "instantComplete": false,
+    "showNotificationsInGame": false,
+    "showProgress": false,
+    "prefab": "",
+    "rarity": "Legendary",
+    "hidden": true,
+    "showConditions": false,
+    "progressBarEnabled": false,
+    "side": "All",
+    "index": 99999
+  }
+]

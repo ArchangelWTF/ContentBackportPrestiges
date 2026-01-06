@@ -1,0 +1,50 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <ReleaseOutputDir>..\Build\SPT\user\mods\archangelwtf-contentbackportprestiges\</ReleaseOutputDir>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="SPTarkov.Common" Version="4.0.3" />
+    <PackageReference Include="SPTarkov.DI" Version="4.0.3" />
+    <PackageReference Include="SPTarkov.Reflection" Version="4.0.3" />
+    <PackageReference Include="SPTarkov.Server.Core" Version="4.0.3" />
+    <PackageReference Include="SPTarkov.Server.Web" Version="4.0.3" />
+    <PackageReference Include="WTT-ServerCommonLib" Version="2.0.9" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="db\**">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <!-- Build script for release build-->
+  <Target Name="CleanUnwantedFiles" AfterTargets="Build">
+    <ItemGroup>
+      <UnwantedFiles Include="$(OutputPath)*.pdb;$(OutputPath)*.deps.json;$(OutputPath)*.endpoints.json;$(OutputPath)*.runtimeconfig.*;$(OutputPath)*.staticwebassets.*" />
+    </ItemGroup>
+    <Delete Files="@(UnwantedFiles)" />
+  </Target>
+  <Target Name="CopyBuildOutput" AfterTargets="CleanUnwantedFiles">
+    <MakeDir Directories="$(ReleaseOutputDir)" />
+    <ItemGroup>
+      <RemainingFiles Include="$(OutputPath)**\*" />
+      <WebAssets Include="$(ProjectDir)wwwroot\**\*.*" />
+    </ItemGroup>
+    <Copy
+      SourceFiles="@(RemainingFiles)"
+      DestinationFiles="@(RemainingFiles->'$(ReleaseOutputDir)%(RecursiveDir)%(Filename)%(Extension)')"
+    />
+    <Copy SourceFiles="@(WebAssets)" DestinationFiles="@(WebAssets->'$(ReleaseOutputDir)wwwroot\%(RecursiveDir)%(Filename)%(Extension)')" />
+  </Target>
+  <Target Name="CopyToServerMods" AfterTargets="CopyBuildOutput" Condition="'$(Configuration)' == 'Debug'">
+    <PropertyGroup>
+      <ServerModsDir>..\..\SPT\server-csharp\SPTarkov.Server\bin\Debug\$(TargetFramework)\user\mods\archangelwtf-contentbackportprestiges\</ServerModsDir>
+    </PropertyGroup>
+    <MakeDir Directories="$(ServerModsDir)" />
+    <ItemGroup>
+      <ModFiles Include="$(ReleaseOutputDir)**\*.*" />
+    </ItemGroup>
+    <Copy SourceFiles="@(ModFiles)" DestinationFiles="@(ModFiles->'$(ServerModsDir)%(RecursiveDir)%(Filename)%(Extension)')" />
+  </Target>
+</Project>

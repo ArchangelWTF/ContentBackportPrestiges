@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="ContentBackportPrestigesClient/ContentBackportPrestigesClient.csproj" Id="307322f5-d89b-4b70-b59f-dca006eff223" />
+  <Project Path="ContentBackportPrestigesServer/ContentBackportPrestigesServer.csproj" />
+</Solution>
