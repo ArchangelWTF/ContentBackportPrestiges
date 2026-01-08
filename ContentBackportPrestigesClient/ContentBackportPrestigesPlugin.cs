@@ -35,7 +35,7 @@ public class ContentBackportPrestigesPlugin : BaseUnityPlugin
             VideoClip = _bundle.LoadAsset<VideoClip>("PRESTIGE_6"),
         };
 
-        new PrestigeIconPatch().Enable();
+        Task.Run(LoadHardSettings);
         new PrestigeAnimationPlayerPatch().Enable();
     }
 
@@ -59,5 +59,22 @@ public class ContentBackportPrestigesPlugin : BaseUnityPlugin
         }
 
         return bundle;
+    }
+
+    public async Task LoadHardSettings()
+    {
+        await EFTHardSettings.Load();
+
+        var prestigeIcons = EFTHardSettings.Instance.ChatSpecialIconSettings.PrestigeIcons;
+
+        foreach (var prestigeIcon in PrestigeIconsToAdd)
+        {
+            if (prestigeIcons.ContainsKey(prestigeIcon.Key))
+            {
+                continue;
+            }
+
+            prestigeIcons.Add(prestigeIcon.Key, prestigeIcon.Value);
+        }
     }
 }
