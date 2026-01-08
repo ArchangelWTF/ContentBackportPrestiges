@@ -7,7 +7,7 @@ using UnityEngine.Video;
 
 namespace ContentBackportPrestigesClient;
 
-[BepInPlugin("wtf.archangel.contentbackportprestiges", "Content Backport - Prestiges", "1.0.0")]
+[BepInPlugin("wtf.archangel.contentbackportprestiges", "Content Backport - Prestiges", "1.0.1")]
 public class ContentBackportPrestigesPlugin : BaseUnityPlugin
 {
     public static Dictionary<int, PrestigeIconsData> PrestigeIconsToAdd = [];

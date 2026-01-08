@@ -10,7 +10,7 @@ public sealed record ContentBackportPrestigesModMetadata : AbstractModMetadata
     public override string Name { get; init; } = "Content Backport - Prestiges";
     public override string Author { get; init; } = "ArchangelWTF";
     public override List<string>? Contributors { get; init; } = [];
-    public override Version Version { get; init; } = new("1.0.0");
+    public override Version Version { get; init; } = new("1.0.1");
     public override Range SptVersion { get; init; } = new("~4.0.3");
     public override List<string>? Incompatibilities { get; init; } = [];
     public override Dictionary<string, Range>? ModDependencies { get; init; } =
