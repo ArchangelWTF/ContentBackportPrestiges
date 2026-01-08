@@ -3,6 +3,7 @@ using SPTarkov.DI.Annotations;
 using SPTarkov.Reflection.Patching;
 using SPTarkov.Server.Core.DI;
 using SPTarkov.Server.Core.Models.Utils;
+using SPTarkov.Server.Core.Utils;
 
 namespace ContentBackportPrestigesServer.OnLoad;
 
@@ -22,6 +23,13 @@ public sealed class PreSPTLoad(ISptLogger<PreSPTLoad> logger) : IOnLoad
         if (_overridesInjected)
         {
             return;
+        }
+
+        var range = SemanticVersioning.Range.Parse("<=4.0.11");
+
+        if (range.IsSatisfied(ProgramStatics.SPT_VERSION()))
+        {
+            _patches.Add(new GiveHeadPatch());
         }
 
         try
