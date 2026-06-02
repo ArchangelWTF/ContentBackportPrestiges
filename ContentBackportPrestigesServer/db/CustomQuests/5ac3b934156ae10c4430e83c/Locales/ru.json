@@ -1,4 +1,20 @@
 {
+    "6a1eee3bc9bb7cec03e980f2": "Hand over any PMC figurine",
+    "6a1eee3b46559854e1d6e4a1": "Hand over any Scav figurine",
+    "6a1eee3b72ccb93b7906f718": "Hand over any Boss figurine",
+    "6a1eee3bf653433c4a37cfe3": "Hand over any Trader figurine",
+    "6a1eee3bbb253cf2af68b9f9": "Hand over found in raid PMC figurine",
+    "6a1eee3b05093d36676983fd": "Hand over found in raid Scav figurine",
+    "6a1eee3b8123f3c6cd43d531": "Hand over found in raid Boss figurine",
+    "6a1eee3b8d3c4959956cc634": "Hand over found in raid Trader figurine",
+    "6a1eee3bff2fbbbd4b5b3a1a": "Hand over found in raid PMC figurine",
+    "6a1eee3b81288e52b4a89e32": "Hand over found in raid Scav figurine",
+    "6a1eee3bdb2afb97ab0d8826": "Hand over found in raid Boss figurine",
+    "6a1eee3b26d55028ef5f6b23": "Hand over found in raid Trader figurine",
+    "6a1efef0158ede62262bb019": "Hand over found in raid PMC figurine",
+    "6a1efef081b380589cd69cbc": "Hand over found in raid Scav figurine",
+    "6a1efef0b9046f4577d850d1": "Hand over found in raid Boss figurine",
+    "6a1efef071747c9c6fa7105d": "Hand over found in raid Trader figurine",
     "68d3eabc22a258476b064851 acceptPlayerMessage": "",
     "68d3eabc22a258476b064851 completePlayerMessage": "",
     "68d3eabc22a258476b064851 declinePlayerMessage": "",
@@ -47,6 +63,7 @@
     "69513b151dfe9cfec5e4808d": "Используйте транзит с Развязки на Таможню",
     "69513b151dfe9cfec5e48086": "Используйте транзит с Таможни на Резерв",
     "69513b151dfe9cfec5e48094": "Выживите и покиньте Резерв",
-    "69513b151dfe9cfec5e4807e": "Найдите и нейтрализуйте любого Босса выстрелом в голову"
+    "69513b151dfe9cfec5e4807e": "Найдите и нейтрализуйте любого Босса выстрелом в голову",
+    "6a1f02989603b67417d55dcb": "Eliminate hooded men"
 
   }

@@ -101,7 +101,7 @@
           "dogtagLevel": 0,
           "dynamicLocale": false,
           "globalQuestCounterId": "",
-          "id": "6761f6f1bacf72169272e381",
+          "id": "6a1eee3bc9bb7cec03e980f2",
           "index": 2,
           "isEncoded": false,
           "maxDurability": 100,
@@ -109,7 +109,11 @@
           "onlyFoundInRaid": false,
           "parentId": "",
           "target": [
-            "655c652d60d0ac437100fed7"
+            "655c663a6689c676ce57af85",
+            "655c652d60d0ac437100fed7",
+            "68f26124b84c6e1f8a09cfff",
+            "66572b8d80b1cd4b6a67847f",
+            "697cddb414e932098005748d"
           ],
           "value": 1,
           "visibilityConditions": []
@@ -119,7 +123,7 @@
           "dogtagLevel": 0,
           "dynamicLocale": false,
           "globalQuestCounterId": "",
-          "id": "6761f7d086fd2d9c941b8aa3",
+          "id": "6a1eee3b46559854e1d6e4a1",
           "index": 3,
           "isEncoded": false,
           "maxDurability": 100,
@@ -127,7 +131,12 @@
           "onlyFoundInRaid": false,
           "parentId": "",
           "target": [
-            "655c66e40b2de553b618d4b8"
+            "655c66e40b2de553b618d4b8",
+            "655c67782a1356436041c9c5",
+            "655c673673a43e23e857aebd",
+            "690c70a2a1461a01d605a1bd",
+            "68f260d7b84c6e1f8a09cffd",
+            "68f261f6928cd23ddf0471fd"
           ],
           "value": 1,
           "visibilityConditions": []
@@ -137,7 +146,7 @@
           "dogtagLevel": 0,
           "dynamicLocale": false,
           "globalQuestCounterId": "",
-          "id": "6761f7f87b309912d6b5f2a9",
+          "id": "6a1eee3b72ccb93b7906f718",
           "index": 4,
           "isEncoded": false,
           "maxDurability": 100,
@@ -145,78 +154,10 @@
           "onlyFoundInRaid": false,
           "parentId": "",
           "target": [
-            "66572c82ad599021091c6118"
-          ],
-          "value": 1,
-          "visibilityConditions": []
-        },
-        {
-          "conditionType": "HandoverItem",
-          "dogtagLevel": 0,
-          "dynamicLocale": false,
-          "globalQuestCounterId": "",
-          "id": "6761f80838201b0588f39a07",
-          "index": 5,
-          "isEncoded": false,
-          "maxDurability": 100,
-          "minDurability": 0,
-          "onlyFoundInRaid": false,
-          "parentId": "",
-          "target": [
-            "66572be36a723f7f005a066e"
-          ],
-          "value": 1,
-          "visibilityConditions": []
-        },
-        {
-          "conditionType": "HandoverItem",
-          "dogtagLevel": 0,
-          "dynamicLocale": false,
-          "globalQuestCounterId": "",
-          "id": "6761f817d42b2f3a242de658",
-          "index": 6,
-          "isEncoded": false,
-          "maxDurability": 100,
-          "minDurability": 0,
-          "onlyFoundInRaid": false,
-          "parentId": "",
-          "target": [
-            "655c67782a1356436041c9c5"
-          ],
-          "value": 1,
-          "visibilityConditions": []
-        },
-        {
-          "conditionType": "HandoverItem",
-          "dogtagLevel": 0,
-          "dynamicLocale": false,
-          "globalQuestCounterId": "",
-          "id": "6761f826d5b89d2d15b53eca",
-          "index": 7,
-          "isEncoded": false,
-          "maxDurability": 100,
-          "minDurability": 0,
-          "onlyFoundInRaid": false,
-          "parentId": "",
-          "target": [
-            "655c673673a43e23e857aebd"
-          ],
-          "value": 1,
-          "visibilityConditions": []
-        },
-        {
-          "conditionType": "HandoverItem",
-          "dogtagLevel": 0,
-          "dynamicLocale": false,
-          "globalQuestCounterId": "",
-          "id": "6761f838d641d60f18a45e1f",
-          "index": 8,
-          "isEncoded": false,
-          "maxDurability": 100,
-          "minDurability": 0,
-          "onlyFoundInRaid": false,
-          "parentId": "",
-          "target": [
+            "66572c82ad599021091c6118",
+            "655c67ab0d37ca5135388f4b",
+            "655c669103999d3c810c025b",
+            "66572be36a723f7f005a066e",
             "66572cbdad599021091c611a"
           ],
           "value": 1,
@@ -227,51 +168,25 @@
           "dogtagLevel": 0,
           "dynamicLocale": false,
           "globalQuestCounterId": "",
-          "id": "6761f85183d342080d39ca98",
-          "index": 9,
+          "id": "6a1eee3bf653433c4a37cfe3",
+          "index": 5,
           "isEncoded": false,
           "maxDurability": 100,
           "minDurability": 0,
           "onlyFoundInRaid": false,
           "parentId": "",
           "target": [
-            "655c663a6689c676ce57af85"
-          ],
-          "value": 1,
-          "visibilityConditions": []
-        },
-        {
-          "conditionType": "HandoverItem",
-          "dogtagLevel": 0,
-          "dynamicLocale": false,
-          "globalQuestCounterId": "",
-          "id": "6761f862c1ba6ee8e161d3d6",
-          "index": 10,
-          "isEncoded": false,
-          "maxDurability": 100,
-          "minDurability": 0,
-          "onlyFoundInRaid": false,
-          "parentId": "",
-          "target": [
-            "655c669103999d3c810c025b"
-          ],
-          "value": 1,
-          "visibilityConditions": []
-        },
-        {
-          "conditionType": "HandoverItem",
-          "dogtagLevel": 0,
-          "dynamicLocale": false,
-          "globalQuestCounterId": "",
-          "id": "6761f87227aeff895cef62c5",
-          "index": 11,
-          "isEncoded": false,
-          "maxDurability": 100,
-          "minDurability": 0,
-          "onlyFoundInRaid": false,
-          "parentId": "",
-          "target": [
-            "66572b8d80b1cd4b6a67847f"
+            "68f2608301fb9de974058be6",
+            "68f25da3b84c6e1f8a09cffb",
+            "68f25faa22c8979ee308f4da",
+            "68f25fdf928cd23ddf0471fb",
+            "68f25f1201fb9de974058be4",
+            "68f25eef19a2b503d70dc291",
+            "68f25c64b2b53abd200b954f",
+            "68f25f3a5d977110860c3350",
+            "68f26063b2b53abd200b9553",
+            "68f25eba19a2b503d70dc28f",
+            "68f25ce9b2b53abd200b9551"
           ],
           "value": 1,
           "visibilityConditions": []
@@ -430,7 +345,7 @@
           "oneSessionOnly": false,
           "parentId": "",
           "type": "Elimination",
-          "value": 15,
+          "value": 10,
           "visibilityConditions": []
         },
         {
@@ -477,7 +392,7 @@
           "dogtagLevel": 0,
           "dynamicLocale": false,
           "globalQuestCounterId": "",
-          "id": "6761ff17cdc36bd66102e9d8",
+          "id": "6a1eee3bbb253cf2af68b9f9",
           "index": 2,
           "isEncoded": false,
           "maxDurability": 100,
@@ -485,9 +400,13 @@
           "onlyFoundInRaid": true,
           "parentId": "",
           "target": [
-            "655c652d60d0ac437100fed7"
+            "655c663a6689c676ce57af85",
+            "655c652d60d0ac437100fed7",
+            "68f26124b84c6e1f8a09cfff",
+            "66572b8d80b1cd4b6a67847f",
+            "697cddb414e932098005748d"
           ],
-          "value": 1,
+          "value": 2,
           "visibilityConditions": []
         },
         {
@@ -495,7 +414,7 @@
           "dogtagLevel": 0,
           "dynamicLocale": false,
           "globalQuestCounterId": "",
-          "id": "6761ff17cdc36bd66102e9d9",
+          "id": "6a1eee3b05093d36676983fd",
           "index": 3,
           "isEncoded": false,
           "maxDurability": 100,
@@ -503,9 +422,14 @@
           "onlyFoundInRaid": true,
           "parentId": "",
           "target": [
-            "655c66e40b2de553b618d4b8"
+            "655c66e40b2de553b618d4b8",
+            "655c67782a1356436041c9c5",
+            "655c673673a43e23e857aebd",
+            "690c70a2a1461a01d605a1bd",
+            "68f260d7b84c6e1f8a09cffd",
+            "68f261f6928cd23ddf0471fd"
           ],
-          "value": 1,
+          "value": 2,
           "visibilityConditions": []
         },
         {
@@ -513,7 +437,7 @@
           "dogtagLevel": 0,
           "dynamicLocale": false,
           "globalQuestCounterId": "",
-          "id": "6761ff17cdc36bd66102e9da",
+          "id": "6a1eee3b8123f3c6cd43d531",
           "index": 4,
           "isEncoded": false,
           "maxDurability": 100,
@@ -521,9 +445,13 @@
           "onlyFoundInRaid": true,
           "parentId": "",
           "target": [
-            "66572c82ad599021091c6118"
+            "66572c82ad599021091c6118",
+            "655c67ab0d37ca5135388f4b",
+            "655c669103999d3c810c025b",
+            "66572be36a723f7f005a066e",
+            "66572cbdad599021091c611a"
           ],
-          "value": 1,
+          "value": 2,
           "visibilityConditions": []
         },
         {
@@ -531,7 +459,7 @@
           "dogtagLevel": 0,
           "dynamicLocale": false,
           "globalQuestCounterId": "",
-          "id": "6761ff17cdc36bd66102e9db",
+          "id": "6a1eee3b8d3c4959956cc634",
           "index": 5,
           "isEncoded": false,
           "maxDurability": 100,
@@ -539,117 +467,19 @@
           "onlyFoundInRaid": true,
           "parentId": "",
           "target": [
-            "66572be36a723f7f005a066e"
+            "68f2608301fb9de974058be6",
+            "68f25da3b84c6e1f8a09cffb",
+            "68f25faa22c8979ee308f4da",
+            "68f25fdf928cd23ddf0471fb",
+            "68f25f1201fb9de974058be4",
+            "68f25eef19a2b503d70dc291",
+            "68f25c64b2b53abd200b954f",
+            "68f25f3a5d977110860c3350",
+            "68f26063b2b53abd200b9553",
+            "68f25eba19a2b503d70dc28f",
+            "68f25ce9b2b53abd200b9551"
           ],
-          "value": 1,
-          "visibilityConditions": []
-        },
-        {
-          "conditionType": "HandoverItem",
-          "dogtagLevel": 0,
-          "dynamicLocale": false,
-          "globalQuestCounterId": "",
-          "id": "6761ff17cdc36bd66102e9dc",
-          "index": 6,
-          "isEncoded": false,
-          "maxDurability": 100,
-          "minDurability": 0,
-          "onlyFoundInRaid": true,
-          "parentId": "",
-          "target": [
-            "655c67782a1356436041c9c5"
-          ],
-          "value": 1,
-          "visibilityConditions": []
-        },
-        {
-          "conditionType": "HandoverItem",
-          "dogtagLevel": 0,
-          "dynamicLocale": false,
-          "globalQuestCounterId": "",
-          "id": "6761ff17cdc36bd66102e9dd",
-          "index": 7,
-          "isEncoded": false,
-          "maxDurability": 100,
-          "minDurability": 0,
-          "onlyFoundInRaid": true,
-          "parentId": "",
-          "target": [
-            "655c673673a43e23e857aebd"
-          ],
-          "value": 1,
-          "visibilityConditions": []
-        },
-        {
-          "conditionType": "HandoverItem",
-          "dogtagLevel": 0,
-          "dynamicLocale": false,
-          "globalQuestCounterId": "",
-          "id": "6761ff17cdc36bd66102e9de",
-          "index": 8,
-          "isEncoded": false,
-          "maxDurability": 100,
-          "minDurability": 0,
-          "onlyFoundInRaid": true,
-          "parentId": "",
-          "target": [
-            "66572cbdad599021091c611a"
-          ],
-          "value": 1,
-          "visibilityConditions": []
-        },
-        {
-          "conditionType": "HandoverItem",
-          "dogtagLevel": 0,
-          "dynamicLocale": false,
-          "globalQuestCounterId": "",
-          "id": "6761ff17cdc36bd66102e9df",
-          "index": 9,
-          "isEncoded": false,
-          "maxDurability": 100,
-          "minDurability": 0,
-          "onlyFoundInRaid": true,
-          "parentId": "",
-          "target": [
-            "655c663a6689c676ce57af85"
-          ],
-          "value": 1,
-          "visibilityConditions": []
-        },
-        {
-          "conditionType": "HandoverItem",
-          "dogtagLevel": 0,
-          "dynamicLocale": false,
-          "globalQuestCounterId": "",
-          "id": "6761ff17cdc36bd66102e9e0",
-          "index": 10,
-          "isEncoded": false,
-          "maxDurability": 100,
-          "minDurability": 0,
-          "onlyFoundInRaid": true,
-          "parentId": "",
-          "target": [
-            "655c669103999d3c810c025b"
-          ],
-          "value": 1,
-          "visibilityConditions": []
-        },
-        {
-          "conditionType": "HandoverItem",
-          "dogtagLevel": 0,
-          "dynamicLocale": false,
-          "globalQuestCounterId": "",
-          "id": "6761ff17cdc36bd66102e9e1",
-          "index": 11,
-          "isEncoded": false,
-          "maxDurability": 100,
-          "minDurability": 0,
-          "onlyFoundInRaid": true,
-          "parentId": "",
-          "target": [
-            "66572b8d80b1cd4b6a67847f"
-          ],
-          "value": 1,
+          "value": 2,
           "visibilityConditions": []
         }
       ],
@@ -806,7 +636,7 @@
           "oneSessionOnly": false,
           "parentId": "",
           "type": "Elimination",
-          "value": 25,
+          "value": 15,
           "visibilityConditions": []
         },
         {
@@ -855,7 +685,7 @@
           "oneSessionOnly": false,
           "parentId": "",
           "type": "Elimination",
-          "value": 50,
+          "value": 20,
           "visibilityConditions": []
         },
         {
@@ -939,7 +769,7 @@
           "dogtagLevel": 0,
           "dynamicLocale": false,
           "globalQuestCounterId": "",
-          "id": "6848100b00afffa81f09e36d",
+          "id": "6a1eee3bff2fbbbd4b5b3a1a",
           "index": 4,
           "isEncoded": false,
           "maxDurability": 100,
@@ -947,9 +777,13 @@
           "onlyFoundInRaid": true,
           "parentId": "",
           "target": [
-            "655c652d60d0ac437100fed7"
+            "655c663a6689c676ce57af85",
+            "655c652d60d0ac437100fed7",
+            "68f26124b84c6e1f8a09cfff",
+            "66572b8d80b1cd4b6a67847f",
+            "697cddb414e932098005748d"
           ],
-          "value": 1,
+          "value": 3,
           "visibilityConditions": []
         },
         {
@@ -957,7 +791,7 @@
           "dogtagLevel": 0,
           "dynamicLocale": false,
           "globalQuestCounterId": "",
-          "id": "6848100b00afffa81f09e36e",
+          "id": "6a1eee3b81288e52b4a89e32",
           "index": 5,
           "isEncoded": false,
           "maxDurability": 100,
@@ -965,9 +799,14 @@
           "onlyFoundInRaid": true,
           "parentId": "",
           "target": [
-            "655c66e40b2de553b618d4b8"
+            "655c66e40b2de553b618d4b8",
+            "655c67782a1356436041c9c5",
+            "655c673673a43e23e857aebd",
+            "690c70a2a1461a01d605a1bd",
+            "68f260d7b84c6e1f8a09cffd",
+            "68f261f6928cd23ddf0471fd"
           ],
-          "value": 1,
+          "value": 3,
           "visibilityConditions": []
         },
         {
@@ -975,7 +814,7 @@
           "dogtagLevel": 0,
           "dynamicLocale": false,
           "globalQuestCounterId": "",
-          "id": "6848100b00afffa81f09e36f",
+          "id": "6a1eee3bdb2afb97ab0d8826",
           "index": 6,
           "isEncoded": false,
           "maxDurability": 100,
@@ -983,9 +822,13 @@
           "onlyFoundInRaid": true,
           "parentId": "",
           "target": [
-            "66572c82ad599021091c6118"
+            "66572c82ad599021091c6118",
+            "655c67ab0d37ca5135388f4b",
+            "655c669103999d3c810c025b",
+            "66572be36a723f7f005a066e",
+            "66572cbdad599021091c611a"
           ],
-          "value": 1,
+          "value": 3,
           "visibilityConditions": []
         },
         {
@@ -993,7 +836,7 @@
           "dogtagLevel": 0,
           "dynamicLocale": false,
           "globalQuestCounterId": "",
-          "id": "6848100b00afffa81f09e370",
+          "id": "6a1eee3b26d55028ef5f6b23",
           "index": 7,
           "isEncoded": false,
           "maxDurability": 100,
@@ -1001,117 +844,19 @@
           "onlyFoundInRaid": true,
           "parentId": "",
           "target": [
-            "66572be36a723f7f005a066e"
+            "68f2608301fb9de974058be6",
+            "68f25da3b84c6e1f8a09cffb",
+            "68f25faa22c8979ee308f4da",
+            "68f25fdf928cd23ddf0471fb",
+            "68f25f1201fb9de974058be4",
+            "68f25eef19a2b503d70dc291",
+            "68f25c64b2b53abd200b954f",
+            "68f25f3a5d977110860c3350",
+            "68f26063b2b53abd200b9553",
+            "68f25eba19a2b503d70dc28f",
+            "68f25ce9b2b53abd200b9551"
           ],
-          "value": 1,
-          "visibilityConditions": []
-        },
-        {
-          "conditionType": "HandoverItem",
-          "dogtagLevel": 0,
-          "dynamicLocale": false,
-          "globalQuestCounterId": "",
-          "id": "6848100b00afffa81f09e371",
-          "index": 8,
-          "isEncoded": false,
-          "maxDurability": 100,
-          "minDurability": 0,
-          "onlyFoundInRaid": true,
-          "parentId": "",
-          "target": [
-            "655c67782a1356436041c9c5"
-          ],
-          "value": 1,
-          "visibilityConditions": []
-        },
-        {
-          "conditionType": "HandoverItem",
-          "dogtagLevel": 0,
-          "dynamicLocale": false,
-          "globalQuestCounterId": "",
-          "id": "6848100b00afffa81f09e372",
-          "index": 9,
-          "isEncoded": false,
-          "maxDurability": 100,
-          "minDurability": 0,
-          "onlyFoundInRaid": true,
-          "parentId": "",
-          "target": [
-            "655c673673a43e23e857aebd"
-          ],
-          "value": 1,
-          "visibilityConditions": []
-        },
-        {
-          "conditionType": "HandoverItem",
-          "dogtagLevel": 0,
-          "dynamicLocale": false,
-          "globalQuestCounterId": "",
-          "id": "6848100b00afffa81f09e373",
-          "index": 10,
-          "isEncoded": false,
-          "maxDurability": 100,
-          "minDurability": 0,
-          "onlyFoundInRaid": true,
-          "parentId": "",
-          "target": [
-            "66572cbdad599021091c611a"
-          ],
-          "value": 1,
-          "visibilityConditions": []
-        },
-        {
-          "conditionType": "HandoverItem",
-          "dogtagLevel": 0,
-          "dynamicLocale": false,
-          "globalQuestCounterId": "",
-          "id": "6848100b00afffa81f09e374",
-          "index": 11,
-          "isEncoded": false,
-          "maxDurability": 100,
-          "minDurability": 0,
-          "onlyFoundInRaid": true,
-          "parentId": "",
-          "target": [
-            "655c663a6689c676ce57af85"
-          ],
-          "value": 1,
-          "visibilityConditions": []
-        },
-        {
-          "conditionType": "HandoverItem",
-          "dogtagLevel": 0,
-          "dynamicLocale": false,
-          "globalQuestCounterId": "",
-          "id": "6848100b00afffa81f09e375",
-          "index": 12,
-          "isEncoded": false,
-          "maxDurability": 100,
-          "minDurability": 0,
-          "onlyFoundInRaid": true,
-          "parentId": "",
-          "target": [
-            "655c669103999d3c810c025b"
-          ],
-          "value": 1,
-          "visibilityConditions": []
-        },
-        {
-          "conditionType": "HandoverItem",
-          "dogtagLevel": 0,
-          "dynamicLocale": false,
-          "globalQuestCounterId": "",
-          "id": "6848100b00afffa81f09e376",
-          "index": 13,
-          "isEncoded": false,
-          "maxDurability": 100,
-          "minDurability": 0,
-          "onlyFoundInRaid": true,
-          "parentId": "",
-          "target": [
-            "66572b8d80b1cd4b6a67847f"
-          ],
-          "value": 1,
+          "value": 3,
           "visibilityConditions": []
         }
       ],
@@ -1284,7 +1029,7 @@
           "oneSessionOnly": false,
           "parentId": "",
           "type": "Elimination",
-          "value": 40,
+          "value": 20,
           "visibilityConditions": []
         },
         {
@@ -1333,7 +1078,7 @@
           "oneSessionOnly": false,
           "parentId": "",
           "type": "Elimination",
-          "value": 100,
+          "value": 30,
           "visibilityConditions": []
         },
         {
@@ -1454,7 +1199,7 @@
           "dogtagLevel": 0,
           "dynamicLocale": false,
           "globalQuestCounterId": "",
-          "id": "68481881f43abfdda2058371",
+          "id": "6a1efef0158ede62262bb019",
           "index": 5,
           "isEncoded": false,
           "maxDurability": 100,
@@ -1462,9 +1207,13 @@
           "onlyFoundInRaid": true,
           "parentId": "",
           "target": [
-            "655c652d60d0ac437100fed7"
+            "655c663a6689c676ce57af85",
+            "655c652d60d0ac437100fed7",
+            "68f26124b84c6e1f8a09cfff",
+            "66572b8d80b1cd4b6a67847f",
+            "697cddb414e932098005748d"
           ],
-          "value": 1,
+          "value": 3,
           "visibilityConditions": []
         },
         {
@@ -1472,7 +1221,7 @@
           "dogtagLevel": 0,
           "dynamicLocale": false,
           "globalQuestCounterId": "",
-          "id": "68481881f43abfdda2058372",
+          "id": "6a1efef081b380589cd69cbc",
           "index": 6,
           "isEncoded": false,
           "maxDurability": 100,
@@ -1480,9 +1229,14 @@
           "onlyFoundInRaid": true,
           "parentId": "",
           "target": [
-            "655c66e40b2de553b618d4b8"
+            "655c66e40b2de553b618d4b8",
+            "655c67782a1356436041c9c5",
+            "655c673673a43e23e857aebd",
+            "690c70a2a1461a01d605a1bd",
+            "68f260d7b84c6e1f8a09cffd",
+            "68f261f6928cd23ddf0471fd"
           ],
-          "value": 1,
+          "value": 3,
           "visibilityConditions": []
         },
         {
@@ -1490,7 +1244,7 @@
           "dogtagLevel": 0,
           "dynamicLocale": false,
           "globalQuestCounterId": "",
-          "id": "68481881f43abfdda2058373",
+          "id": "6a1efef0b9046f4577d850d1",
           "index": 7,
           "isEncoded": false,
           "maxDurability": 100,
@@ -1498,9 +1252,13 @@
           "onlyFoundInRaid": true,
           "parentId": "",
           "target": [
-            "66572c82ad599021091c6118"
+            "66572c82ad599021091c6118",
+            "655c67ab0d37ca5135388f4b",
+            "655c669103999d3c810c025b",
+            "66572be36a723f7f005a066e",
+            "66572cbdad599021091c611a"
           ],
-          "value": 1,
+          "value": 3,
           "visibilityConditions": []
         },
         {
@@ -1508,7 +1266,7 @@
           "dogtagLevel": 0,
           "dynamicLocale": false,
           "globalQuestCounterId": "",
-          "id": "68481881f43abfdda2058374",
+          "id": "6a1efef071747c9c6fa7105d",
           "index": 8,
           "isEncoded": false,
           "maxDurability": 100,
@@ -1516,117 +1274,19 @@
           "onlyFoundInRaid": true,
           "parentId": "",
           "target": [
-            "66572be36a723f7f005a066e"
+            "68f2608301fb9de974058be6",
+            "68f25da3b84c6e1f8a09cffb",
+            "68f25faa22c8979ee308f4da",
+            "68f25fdf928cd23ddf0471fb",
+            "68f25f1201fb9de974058be4",
+            "68f25eef19a2b503d70dc291",
+            "68f25c64b2b53abd200b954f",
+            "68f25f3a5d977110860c3350",
+            "68f26063b2b53abd200b9553",
+            "68f25eba19a2b503d70dc28f",
+            "68f25ce9b2b53abd200b9551"
           ],
-          "value": 1,
-          "visibilityConditions": []
-        },
-        {
-          "conditionType": "HandoverItem",
-          "dogtagLevel": 0,
-          "dynamicLocale": false,
-          "globalQuestCounterId": "",
-          "id": "68481881f43abfdda2058375",
-          "index": 9,
-          "isEncoded": false,
-          "maxDurability": 100,
-          "minDurability": 0,
-          "onlyFoundInRaid": true,
-          "parentId": "",
-          "target": [
-            "655c67782a1356436041c9c5"
-          ],
-          "value": 1,
-          "visibilityConditions": []
-        },
-        {
-          "conditionType": "HandoverItem",
-          "dogtagLevel": 0,
-          "dynamicLocale": false,
-          "globalQuestCounterId": "",
-          "id": "68481881f43abfdda2058376",
-          "index": 10,
-          "isEncoded": false,
-          "maxDurability": 100,
-          "minDurability": 0,
-          "onlyFoundInRaid": true,
-          "parentId": "",
-          "target": [
-            "655c673673a43e23e857aebd"
-          ],
-          "value": 1,
-          "visibilityConditions": []
-        },
-        {
-          "conditionType": "HandoverItem",
-          "dogtagLevel": 0,
-          "dynamicLocale": false,
-          "globalQuestCounterId": "",
-          "id": "68481881f43abfdda2058377",
-          "index": 11,
-          "isEncoded": false,
-          "maxDurability": 100,
-          "minDurability": 0,
-          "onlyFoundInRaid": true,
-          "parentId": "",
-          "target": [
-            "66572cbdad599021091c611a"
-          ],
-          "value": 1,
-          "visibilityConditions": []
-        },
-        {
-          "conditionType": "HandoverItem",
-          "dogtagLevel": 0,
-          "dynamicLocale": false,
-          "globalQuestCounterId": "",
-          "id": "68481881f43abfdda2058378",
-          "index": 12,
-          "isEncoded": false,
-          "maxDurability": 100,
-          "minDurability": 0,
-          "onlyFoundInRaid": true,
-          "parentId": "",
-          "target": [
-            "655c663a6689c676ce57af85"
-          ],
-          "value": 1,
-          "visibilityConditions": []
-        },
-        {
-          "conditionType": "HandoverItem",
-          "dogtagLevel": 0,
-          "dynamicLocale": false,
-          "globalQuestCounterId": "",
-          "id": "68481881f43abfdda2058379",
-          "index": 13,
-          "isEncoded": false,
-          "maxDurability": 100,
-          "minDurability": 0,
-          "onlyFoundInRaid": true,
-          "parentId": "",
-          "target": [
-            "655c669103999d3c810c025b"
-          ],
-          "value": 1,
-          "visibilityConditions": []
-        },
-        {
-          "conditionType": "HandoverItem",
-          "dogtagLevel": 0,
-          "dynamicLocale": false,
-          "globalQuestCounterId": "",
-          "id": "68481881f43abfdda205837a",
-          "index": 14,
-          "isEncoded": false,
-          "maxDurability": 100,
-          "minDurability": 0,
-          "onlyFoundInRaid": true,
-          "parentId": "",
-          "target": [
-            "66572b8d80b1cd4b6a67847f"
-          ],
-          "value": 1,
+          "value": 3,
           "visibilityConditions": []
         }
       ],
@@ -2523,6 +2183,54 @@
           "parentId": "",
           "type": "Elimination",
           "value": 1,
+          "visibilityConditions": []
+        },
+        {
+          "completeInSeconds": 0,
+          "conditionType": "CounterCreator",
+          "counter": {
+            "conditions": [
+              {
+                "bodyPart": [],
+                "compareMethod": ">=",
+                "conditionType": "Kills",
+                "daytime": {
+                  "from": 0,
+                  "to": 0
+                },
+                "distance": {
+                  "compareMethod": ">=",
+                  "value": 0
+                },
+                "dynamicLocale": false,
+                "enemyEquipmentExclusive": [],
+                "enemyEquipmentInclusive": [],
+                "enemyHealthEffects": [],
+                "id": "6a1f02989603b67417d55dca",
+                "resetOnSessionEnd": false,
+                "savageRole": [
+                  "sectantPriest",
+                  "sectantWarrior"
+                ],
+                "target": "Savage",
+                "value": 1,
+                "weapon": [],
+                "weaponCaliber": [],
+                "weaponModsExclusive": [],
+                "weaponModsInclusive": []
+              }
+            ],
+            "id": "6a1f02989603b67417d55dcc"
+          },
+          "doNotResetIfCounterCompleted": false,
+          "dynamicLocale": false,
+          "globalQuestCounterId": "",
+          "id": "6a1f02989603b67417d55dcb",
+          "index": 0,
+          "oneSessionOnly": false,
+          "parentId": "",
+          "type": "Elimination",
+          "value": 5,
           "visibilityConditions": []
         },
         {
