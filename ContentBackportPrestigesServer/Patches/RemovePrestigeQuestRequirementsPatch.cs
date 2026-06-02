@@ -18,10 +18,8 @@ public sealed class RemovePrestigeQuestRequirementsPatch : AbstractPatch
 
     // This zero's out the RemovePrestigeQuestRequirementsIfQuestNotFound method, we will handle it here as we add some quests that are some of these requirements
     [PatchTranspiler]
-    public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+    public static IEnumerable<CodeInstruction> Transpiler()
     {
-        List<CodeInstruction> newInstructions = [new(OpCodes.Ret)];
-
-        return newInstructions;
+        return [new(OpCodes.Ret)];
     }
 }

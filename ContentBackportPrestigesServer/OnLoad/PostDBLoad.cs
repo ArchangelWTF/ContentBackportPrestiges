@@ -6,6 +6,7 @@ using SPTarkov.Server.Core.Models.Eft.Common.Tables;
 using SPTarkov.Server.Core.Routers;
 using SPTarkov.Server.Core.Servers;
 using SPTarkov.Server.Core.Utils;
+using SPTarkov.Server.Core.Utils.Json;
 using Path = System.IO.Path;
 
 namespace ContentBackportPrestigesServer.OnLoad;
@@ -32,15 +33,23 @@ public sealed class PostDBLoad(
         await serverCommonLib.CustomQuestService.CreateCustomQuests(ModAssembly);
         await serverCommonLib.CustomAchievementService.CreateCustomAchievements(ModAssembly);
 
-        var newPrestiges =
+        var prestigesToModify =
             await jsonUtil.DeserializeFromFileAsync<Prestige>(Path.Combine(ModPath, "db", "PrestigeBackport", "prestiges.json"))
             ?? throw new InvalidOperationException("Could not load prestiges!");
 
-        foreach (var prestige in newPrestiges.Elements)
+        foreach (var prestige in prestigesToModify.Elements)
         {
-            // Add the new prestiges, should they not already exist
-            if (!databasePrestiges.Elements.Any(e => e.Id == prestige.Id))
+            var existingPrestige = databasePrestiges.Elements.FirstOrDefault(e => e.Id == prestige.Id);
+
+            // Modify the existing prestige, required for any of the new prestiges post 1.0.5.0
+            if (existingPrestige != null)
             {
+                var existingIndex = databasePrestiges.Elements.IndexOf(existingPrestige);
+                databasePrestiges.Elements[existingIndex] = prestige;
+            }
+            else
+            {
+                // Add the prestige if it doesn't exist
                 databasePrestiges.Elements.Add(prestige);
             }
         }
@@ -93,6 +102,7 @@ public sealed class PostDBLoad(
         }
     }
 
+    // This adds the new streamer items to the collector quest
     private void HandleNewCollectorItems()
     {
         var quests = databaseServer.GetTables().Templates.Quests;
@@ -105,6 +115,7 @@ public sealed class PostDBLoad(
             }
 
             collectorQuest.Conditions.AvailableForFinish.Add(
+                // Hehe.. NUT sack xdx
                 new QuestCondition
                 {
                     Id = "693c3a908ad994118b846d63",
@@ -118,12 +129,13 @@ public sealed class PostDBLoad(
                     ConditionType = "HandoverItem",
                     MaxDurability = 100,
                     MinDurability = 0,
-                    Target = new SPTarkov.Server.Core.Utils.Json.ListOrT<string>(["69398e94ca94fd2877039504"], null),
+                    Target = new ListOrT<string>(["69398e94ca94fd2877039504"], null),
                     VisibilityConditions = [],
                 }
             );
 
             collectorQuest.Conditions.AvailableForFinish.Add(
+                // Mazoni golden dumbbell
                 new QuestCondition
                 {
                     Id = "693c3a9fc17c9edbfc58325a",
@@ -137,12 +149,13 @@ public sealed class PostDBLoad(
                     ConditionType = "HandoverItem",
                     MaxDurability = 100,
                     MinDurability = 0,
-                    Target = new SPTarkov.Server.Core.Utils.Json.ListOrT<string>(["6937edb912d456a817083e82"], null),
+                    Target = new ListOrT<string>(["6937edb912d456a817083e82"], null),
                     VisibilityConditions = [],
                 }
             );
 
             collectorQuest.Conditions.AvailableForFinish.Add(
+                // Tigzresq splint
                 new QuestCondition
                 {
                     Id = "693c3aacf0cd3ec97007f2c1",
@@ -156,12 +169,13 @@ public sealed class PostDBLoad(
                     ConditionType = "HandoverItem",
                     MaxDurability = 100,
                     MinDurability = 0,
-                    Target = new SPTarkov.Server.Core.Utils.Json.ListOrT<string>(["6937ecf8628ee476240c07cb"], null),
+                    Target = new ListOrT<string>(["6937ecf8628ee476240c07cb"], null),
                     VisibilityConditions = [],
                 }
             );
 
             collectorQuest.Conditions.AvailableForFinish.Add(
+                //Domontovich ushanka hat
                 new QuestCondition
                 {
                     Id = "693c3ab82b0477e3de2b2312",
@@ -175,7 +189,7 @@ public sealed class PostDBLoad(
                     ConditionType = "HandoverItem",
                     MaxDurability = 100,
                     MinDurability = 0,
-                    Target = new SPTarkov.Server.Core.Utils.Json.ListOrT<string>(["6937f02dfd6488bb27024839"], null),
+                    Target = new ListOrT<string>(["6937f02dfd6488bb27024839"], null),
                     VisibilityConditions = [],
                 }
             );
@@ -184,6 +198,7 @@ public sealed class PostDBLoad(
 
     private void RemoveRewardsOutOfPrestigeAchievement()
     {
+        // Prestige 67 achievement
         var cheatingAchievement = databaseServer.GetTables().Templates.Achievements.FirstOrDefault(x => x.Id == "694c6575af08f6f1d59a5737");
 
         if (cheatingAchievement is not null)
