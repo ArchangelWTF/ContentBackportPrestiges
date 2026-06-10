@@ -2,6 +2,7 @@
 using SPTarkov.DI.Annotations;
 using SPTarkov.Server.Core.DI;
 using SPTarkov.Server.Core.Helpers;
+using SPTarkov.Server.Core.Models.Common;
 using SPTarkov.Server.Core.Models.Eft.Common.Tables;
 using SPTarkov.Server.Core.Routers;
 using SPTarkov.Server.Core.Servers;
@@ -77,8 +78,8 @@ public sealed class PostDBLoad(
         // Add new streamer items to collector quest
         HandleNewCollectorItems();
 
-        // Remove rewards out of cheating achievement
-        RemoveRewardsOutOfPrestigeAchievement();
+        // Remove rewards out of various achievements
+        RemoveRewardsOutOfAchievements();
 
         CreateRouteMapping(Path.Combine(ModPath, "db", "PrestigeBackport", "images"), "files");
     }
@@ -113,6 +114,18 @@ public sealed class PostDBLoad(
             {
                 return;
             }
+
+            //Todo:
+            //Remove:
+            // Old firesteel
+            // Golden rooster
+            // Devildog mayo
+            // Can of sprats
+            // Kotton beanie
+            //Add (after new backport releases)
+            // DesmondPilak CD
+            // Dundak floppy disk
+            // SheefGG piggy bank
 
             collectorQuest.Conditions.AvailableForFinish.Add(
                 // Hehe.. NUT sack xdx
@@ -196,7 +209,7 @@ public sealed class PostDBLoad(
         }
     }
 
-    private void RemoveRewardsOutOfPrestigeAchievement()
+    private void RemoveRewardsOutOfAchievements()
     {
         // Prestige 67 achievement
         var cheatingAchievement = databaseServer.GetTables().Templates.Achievements.FirstOrDefault(x => x.Id == "694c6575af08f6f1d59a5737");
@@ -204,6 +217,33 @@ public sealed class PostDBLoad(
         if (cheatingAchievement is not null)
         {
             cheatingAchievement.Rewards = [];
+        }
+
+        var gammaCaseAchievement = databaseServer
+            .GetTables()
+            .Templates.Achievements.FirstOrDefault(x => x.Id == "694dbb05a4a61e9ad031c609");
+
+        if (gammaCaseAchievement is not null)
+        {
+            // Secure container Gamma (Loui Peeton)
+            var gammaCaseId = new MongoId("68f117b8121d878a2303eee0");
+
+            gammaCaseAchievement.Rewards = gammaCaseAchievement
+                .Rewards.Where(reward =>
+                {
+                    if (reward.Items is null)
+                    {
+                        return true;
+                    }
+
+                    if (reward.Items.Any(item => item.Template == gammaCaseId))
+                    {
+                        return false;
+                    }
+
+                    return true;
+                })
+                .ToList();
         }
     }
 }
