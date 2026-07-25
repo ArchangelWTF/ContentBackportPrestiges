@@ -115,17 +115,23 @@ public sealed class PostDBLoad(
                 return;
             }
 
-            //Todo:
-            //Remove:
-            // Old firesteel
-            // Golden rooster
-            // Devildog mayo
-            // Can of sprats
-            // Kotton beanie
-            //Add (after new backport releases)
-            // DesmondPilak CD
-            // Dundak floppy disk
-            // SheefGG piggy bank
+            // Remove handover conditions for items we no longer want on the collector quest
+            var itemsToRemove = new HashSet<string>
+            {
+                "5bc9c377d4351e3bac12251b", // Old firesteel
+                "5bc9bc53d4351e00367fbcee", // Golden rooster figurine
+                "5bc9b156d4351e00367fbce9", // Jar of DevilDog mayo
+                "5bc9c29cd4351e003562b8a3", // Can of sprats
+                "5bd073c986f7747f627e796c", // Kotton beanie
+            };
+
+            collectorQuest.Conditions.AvailableForFinish.RemoveAll(condition =>
+                condition.Target is not null
+                && (
+                    (condition.Target.Item is not null && itemsToRemove.Contains(condition.Target.Item))
+                    || (condition.Target.List is not null && condition.Target.List.Any(target => itemsToRemove.Contains(target)))
+                )
+            );
 
             collectorQuest.Conditions.AvailableForFinish.Add(
                 // Hehe.. NUT sack xdx
@@ -203,6 +209,66 @@ public sealed class PostDBLoad(
                     MaxDurability = 100,
                     MinDurability = 0,
                     Target = new ListOrT<string>(["6937f02dfd6488bb27024839"], null),
+                    VisibilityConditions = [],
+                }
+            );
+
+            collectorQuest.Conditions.AvailableForFinish.Add(
+                //DesmondPilak CD
+                new QuestCondition
+                {
+                    Id = "6a6528d19363eee246875aea",
+                    GlobalQuestCounterId = "",
+                    DogtagLevel = 0,
+                    ParentId = "",
+                    DynamicLocale = false,
+                    OnlyFoundInRaid = true,
+                    Value = 1,
+                    IsEncoded = false,
+                    ConditionType = "HandoverItem",
+                    MaxDurability = 100,
+                    MinDurability = 0,
+                    Target = new ListOrT<string>(["69f9d547b98cc4120608692a"], null),
+                    VisibilityConditions = [],
+                }
+            );
+
+            collectorQuest.Conditions.AvailableForFinish.Add(
+                //Dunduk floppy disk
+                new QuestCondition
+                {
+                    Id = "6a6528d19363eee246875ae8",
+                    GlobalQuestCounterId = "",
+                    DogtagLevel = 0,
+                    ParentId = "",
+                    DynamicLocale = false,
+                    OnlyFoundInRaid = true,
+                    Value = 1,
+                    IsEncoded = false,
+                    ConditionType = "HandoverItem",
+                    MaxDurability = 100,
+                    MinDurability = 0,
+                    Target = new ListOrT<string>(["69f9d60b5de6674f08060f2a"], null),
+                    VisibilityConditions = [],
+                }
+            );
+
+            collectorQuest.Conditions.AvailableForFinish.Add(
+                //SheefGG piggy bank
+                new QuestCondition
+                {
+                    Id = "6a6528d19363eee246875aee",
+                    GlobalQuestCounterId = "",
+                    DogtagLevel = 0,
+                    ParentId = "",
+                    DynamicLocale = false,
+                    OnlyFoundInRaid = true,
+                    Value = 1,
+                    IsEncoded = false,
+                    ConditionType = "HandoverItem",
+                    MaxDurability = 100,
+                    MinDurability = 0,
+                    Target = new ListOrT<string>(["69f9d319c906cd16da03b374"], null),
                     VisibilityConditions = [],
                 }
             );

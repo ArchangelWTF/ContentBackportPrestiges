@@ -25,13 +25,6 @@ public sealed class PreSPTLoad(ISptLogger<PreSPTLoad> logger) : IOnLoad
             return;
         }
 
-        var range = SemanticVersioning.Range.Parse("<=4.0.11");
-
-        if (range.IsSatisfied(ProgramStatics.SPT_VERSION()))
-        {
-            _patches.Add(new GiveHeadPatch());
-        }
-
         try
         {
             foreach (AbstractPatch patch in _patches)

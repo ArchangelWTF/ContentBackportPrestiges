@@ -1,0 +1,106 @@
+name: Release
+
+on:
+  push:
+    tags:
+      # Version tags with a leading "v", e.g. v1.7.0
+      - 'v[0-9]+.[0-9]+.[0-9]+'
+      - 'v[0-9]+.[0-9]+.[0-9]+-*'
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version to build (with or without leading v, e.g. v1.7.0)'
+        required: true
+
+env:
+  MOD_NAME: ContentBackportPrestiges
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Determine version
+        id: version
+        shell: bash
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            RAW="${{ github.event.inputs.version }}"
+          else
+            RAW="${{ github.ref_name }}"
+          fi
+          # Tag is v-prefixed (e.g. v1.7.0); strip the v for the DLL version and zip name
+          VERSION="${RAW#v}"
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          echo "tag=v$VERSION" >> "$GITHUB_OUTPUT"
+          echo "Building version $VERSION (tag v$VERSION)"
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v5
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: Restore
+        run: dotnet restore
+
+      - name: Build (Release)
+        run: dotnet build --configuration Release --no-restore -p:Version=${{ steps.version.outputs.version }}
+
+      - name: Package
+        id: package
+        shell: bash
+        run: |
+          ZIP_NAME="$MOD_NAME-${{ steps.version.outputs.version }}.zip"
+          # Zip the contents of Build/ so the archive root holds BepInEx/... and SPT/... (standard SPT layout)
+          ( cd Build && zip -r "../$ZIP_NAME" . )
+          echo "zip_name=$ZIP_NAME" >> "$GITHUB_OUTPUT"
+
+      - name: VirusTotal scan
+        id: vt
+        uses: crazy-max/ghaction-virustotal@v5
+        with:
+          vt_api_key: ${{ secrets.VIRUSTOTAL_API_KEY }}
+          # One path per line. Add more files here and each gets its own link below.
+          files: |
+            Build/BepInEx/plugins/archangelwtf-contentbackportprestiges/ContentBackportPrestigesClient.dll
+            Build/SPT/user/mods/archangelwtf-contentbackportprestiges/ContentBackportPrestigesServer.dll
+
+      - name: Build release notes
+        id: notes
+        shell: bash
+        env:
+          VT_ANALYSIS: ${{ steps.vt.outputs.analysis }}
+        run: |
+          {
+            echo "notes<<EOF"
+            echo "## Content Backport - Prestiges ${{ steps.version.outputs.version }}"
+            echo ""
+            echo "_Changelog goes here._"
+            echo ""
+            echo "### VirusTotal"
+            # The action outputs comma-separated "filepath=url" pairs, one per scanned file
+            IFS=',' read -ra RESULTS <<< "$VT_ANALYSIS"
+            for entry in "${RESULTS[@]}"; do
+              [ -z "$entry" ] && continue
+              name="${entry%%=*}"
+              url="${entry#*=}"
+              echo "- [\`$(basename "$name")\`]($url)"
+            done
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Create draft release
+        uses: softprops/action-gh-release@v3
+        with:
+          draft: true
+          name: ${{ steps.version.outputs.tag }}
+          tag_name: ${{ steps.version.outputs.tag }}
+          body: ${{ steps.notes.outputs.notes }}
+          files: ${{ steps.package.outputs.zip_name }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
