@@ -2,6 +2,7 @@
 using SPTarkov.DI.Annotations;
 using SPTarkov.Server.Core.DI;
 using SPTarkov.Server.Core.Helpers;
+using SPTarkov.Server.Core.Models.Common;
 using SPTarkov.Server.Core.Models.Eft.Common.Tables;
 using SPTarkov.Server.Core.Routers;
 using SPTarkov.Server.Core.Servers;
@@ -77,8 +78,8 @@ public sealed class PostDBLoad(
         // Add new streamer items to collector quest
         HandleNewCollectorItems();
 
-        // Remove rewards out of cheating achievement
-        RemoveRewardsOutOfPrestigeAchievement();
+        // Remove rewards out of various achievements
+        RemoveRewardsOutOfAchievements();
 
         CreateRouteMapping(Path.Combine(ModPath, "db", "PrestigeBackport", "images"), "files");
     }
@@ -113,6 +114,24 @@ public sealed class PostDBLoad(
             {
                 return;
             }
+
+            // Remove handover conditions for items we no longer want on the collector quest
+            var itemsToRemove = new HashSet<string>
+            {
+                "5bc9c377d4351e3bac12251b", // Old firesteel
+                "5bc9bc53d4351e00367fbcee", // Golden rooster figurine
+                "5bc9b156d4351e00367fbce9", // Jar of DevilDog mayo
+                "5bc9c29cd4351e003562b8a3", // Can of sprats
+                "5bd073c986f7747f627e796c", // Kotton beanie
+            };
+
+            collectorQuest.Conditions.AvailableForFinish.RemoveAll(condition =>
+                condition.Target is not null
+                && (
+                    (condition.Target.Item is not null && itemsToRemove.Contains(condition.Target.Item))
+                    || (condition.Target.List is not null && condition.Target.List.Any(target => itemsToRemove.Contains(target)))
+                )
+            );
 
             collectorQuest.Conditions.AvailableForFinish.Add(
                 // Hehe.. NUT sack xdx
@@ -193,10 +212,70 @@ public sealed class PostDBLoad(
                     VisibilityConditions = [],
                 }
             );
+
+            collectorQuest.Conditions.AvailableForFinish.Add(
+                //DesmondPilak CD
+                new QuestCondition
+                {
+                    Id = "6a6528d19363eee246875aea",
+                    GlobalQuestCounterId = "",
+                    DogtagLevel = 0,
+                    ParentId = "",
+                    DynamicLocale = false,
+                    OnlyFoundInRaid = true,
+                    Value = 1,
+                    IsEncoded = false,
+                    ConditionType = "HandoverItem",
+                    MaxDurability = 100,
+                    MinDurability = 0,
+                    Target = new ListOrT<string>(["69f9d547b98cc4120608692a"], null),
+                    VisibilityConditions = [],
+                }
+            );
+
+            collectorQuest.Conditions.AvailableForFinish.Add(
+                //Dunduk floppy disk
+                new QuestCondition
+                {
+                    Id = "6a6528d19363eee246875ae8",
+                    GlobalQuestCounterId = "",
+                    DogtagLevel = 0,
+                    ParentId = "",
+                    DynamicLocale = false,
+                    OnlyFoundInRaid = true,
+                    Value = 1,
+                    IsEncoded = false,
+                    ConditionType = "HandoverItem",
+                    MaxDurability = 100,
+                    MinDurability = 0,
+                    Target = new ListOrT<string>(["69f9d60b5de6674f08060f2a"], null),
+                    VisibilityConditions = [],
+                }
+            );
+
+            collectorQuest.Conditions.AvailableForFinish.Add(
+                //SheefGG piggy bank
+                new QuestCondition
+                {
+                    Id = "6a6528d19363eee246875aee",
+                    GlobalQuestCounterId = "",
+                    DogtagLevel = 0,
+                    ParentId = "",
+                    DynamicLocale = false,
+                    OnlyFoundInRaid = true,
+                    Value = 1,
+                    IsEncoded = false,
+                    ConditionType = "HandoverItem",
+                    MaxDurability = 100,
+                    MinDurability = 0,
+                    Target = new ListOrT<string>(["69f9d319c906cd16da03b374"], null),
+                    VisibilityConditions = [],
+                }
+            );
         }
     }
 
-    private void RemoveRewardsOutOfPrestigeAchievement()
+    private void RemoveRewardsOutOfAchievements()
     {
         // Prestige 67 achievement
         var cheatingAchievement = databaseServer.GetTables().Templates.Achievements.FirstOrDefault(x => x.Id == "694c6575af08f6f1d59a5737");
@@ -204,6 +283,33 @@ public sealed class PostDBLoad(
         if (cheatingAchievement is not null)
         {
             cheatingAchievement.Rewards = [];
+        }
+
+        var gammaCaseAchievement = databaseServer
+            .GetTables()
+            .Templates.Achievements.FirstOrDefault(x => x.Id == "694dbb05a4a61e9ad031c609");
+
+        if (gammaCaseAchievement is not null)
+        {
+            // Secure container Gamma (Loui Peeton)
+            var gammaCaseId = new MongoId("68f117b8121d878a2303eee0");
+
+            gammaCaseAchievement.Rewards = gammaCaseAchievement
+                .Rewards.Where(reward =>
+                {
+                    if (reward.Items is null)
+                    {
+                        return true;
+                    }
+
+                    if (reward.Items.Any(item => item.Template == gammaCaseId))
+                    {
+                        return false;
+                    }
+
+                    return true;
+                })
+                .ToList();
         }
     }
 }
