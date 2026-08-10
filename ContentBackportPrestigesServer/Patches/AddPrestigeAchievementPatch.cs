@@ -31,6 +31,8 @@ public sealed class AddPrestigeAchievementPatch : AbstractPatch
             0,
             databaseServer.GetTables().Templates.Prestige.Elements.Count - 1
         );
+
+        //Todo: Fetch out of PrestigeHelper
         var achievements = AddMissingPrestigesToProfile.PrestigeAchievements.Values.ToList();
         var currentAchievement = achievements[indexOfPrestigeObtained];
 
