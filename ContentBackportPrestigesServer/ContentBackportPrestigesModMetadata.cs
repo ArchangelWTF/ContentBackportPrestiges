@@ -4,18 +4,19 @@ using Version = SemanticVersioning.Version;
 
 namespace ContentBackportPrestigesServer;
 
-public sealed record ContentBackportPrestigesModMetadata : AbstractModMetadata
+public sealed record ContentBackportPrestigesModMetadata : IModMetadata
 {
-    public override string ModGuid { get; init; } = "wtf.archangel.contentbackportprestiges";
-    public override string Name { get; init; } = "Content Backport - Prestiges";
-    public override string Author { get; init; } = "ArchangelWTF";
-    public override List<string>? Contributors { get; init; } = [];
-    public override Version Version { get; init; } = new(ContentBackportPrestigesCompileConstants.MOD_VERSION);
-    public override Range SptVersion { get; init; } = new("~4.0.13");
-    public override List<string>? Incompatibilities { get; init; } = [];
-    public override Dictionary<string, Range>? ModDependencies { get; init; } =
-        new() { { "com.wtt.commonlib", new Range("^2.0") }, { "com.wtt.contentbackport", new Range("~1.1.0") } };
-    public override string? Url { get; init; } = "https://github.com/ArchangelWTF/ContentBackportPrestiges";
-    public override bool? IsBundleMod { get; init; } = false;
-    public override string License { get; init; } = "MIT";
+    public string ModGuid { get; init; } = "wtf.archangel.contentbackportprestiges";
+    public string Name { get; init; } = "Content Backport - Prestiges";
+    public string Author { get; init; } = "ArchangelWTF";
+    public List<string>? Contributors { get; init; } = [];
+    public Version Version { get; init; } = new(ContentBackportPrestigesCompileConstants.MOD_VERSION);
+    public Range SptVersion { get; init; } = new("~4.1");
+    public List<string>? Incompatibilities { get; init; } = [];
+    public Dictionary<string, Range>? ModDependencies { get; init; } =
+        new() { { "com.wtt.commonlib", new Range("^3.0") }, { "com.wtt.contentbackport", new Range("1.1.3") } };
+    public string? Url { get; init; } = "https://github.com/ArchangelWTF/ContentBackportPrestiges";
+    public bool? IsBundleMod { get; init; } = false;
+    public string License { get; init; } = "MIT";
+    public bool HasPrepatcher { get; init; } = false;
 }

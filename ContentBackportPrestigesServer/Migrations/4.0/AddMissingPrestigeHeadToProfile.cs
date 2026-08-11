@@ -10,16 +10,6 @@ public sealed class AddMissingPrestigeHeadToProfile : AbstractProfileMigration
 {
     private static readonly List<MongoId> _heads = ["68fb8872fb3842532002cbc1", "68fb88b9d4b0e9617502c1c4"];
 
-    public override string FromVersion
-    {
-        get { return "~4.0"; }
-    }
-
-    public override string ToVersion
-    {
-        get { return "~4.0"; }
-    }
-
     public override string MigrationName
     {
         get { return "AddMissingPrestigeHeadToProfile"; }

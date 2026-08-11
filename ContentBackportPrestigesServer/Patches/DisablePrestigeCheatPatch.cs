@@ -1,10 +1,12 @@
 ﻿using System.Reflection;
 using HarmonyLib;
+using SPTarkov.DI.Annotations;
 using SPTarkov.Reflection.Patching;
 using SPTarkov.Server.Core.Models.Eft.Dialog;
 
 namespace ContentBackportPrestigesServer.Patches;
 
+[Injectable]
 public sealed class DisablePrestigeCheatPatch : AbstractPatch
 {
     protected override MethodBase GetTargetMethod()

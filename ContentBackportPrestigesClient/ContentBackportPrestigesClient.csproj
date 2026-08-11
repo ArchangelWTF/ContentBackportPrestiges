@@ -7,7 +7,7 @@
     <ReleaseOutputDir>..\Build\BepInEx\plugins\archangelwtf-contentbackportprestiges\</ReleaseOutputDir>
     <PluginGuid>wtf.archangel.contentbackportprestiges</PluginGuid>
     <PluginName>Content Backport - Prestiges</PluginName>
-    <Version>1.0.5</Version>
+    <Version>1.1.0</Version>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="BepInEx.Core" Version="5.*" />
@@ -28,9 +28,6 @@
     </Reference>
     <Reference Include="CommonExtensions" HintPath="..\References\CommonExtensions.dll" Private="false" />
     <Reference Include="DissonanceVoip" HintPath="..\References\DissonanceVoip.dll" Private="false" />
-    <Reference Include="DrakiaXYZ-BigBrain">
-      <HintPath>..\References\DrakiaXYZ-BigBrain.dll</HintPath>
-    </Reference>
     <Reference Include="ItemComponent.Types" HintPath="..\References\ItemComponent.Types.dll" Private="false" />
     <Reference Include="Newtonsoft.Json" HintPath="..\References\Newtonsoft.Json.dll" Private="false" />
     <Reference Include="Sirenix.Serialization">

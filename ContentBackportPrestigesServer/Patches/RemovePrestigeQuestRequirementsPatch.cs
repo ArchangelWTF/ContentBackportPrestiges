@@ -1,11 +1,14 @@
 ﻿using System.Reflection;
 using System.Reflection.Emit;
 using HarmonyLib;
+using SPTarkov.DI.Annotations;
 using SPTarkov.Reflection.Patching;
 using SPTarkov.Server.Core.Services;
+using SPTarkov.Server.Core.Services.Server;
 
 namespace ContentBackportPrestigesServer.Patches;
 
+[Injectable]
 public sealed class RemovePrestigeQuestRequirementsPatch : AbstractPatch
 {
     protected override MethodBase GetTargetMethod()
