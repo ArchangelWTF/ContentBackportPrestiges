@@ -56,7 +56,7 @@ jobs:
         shell: bash
         run: |
           ZIP_NAME="$MOD_NAME-${{ steps.version.outputs.version }}.zip"
-          # Zip the contents of Build/ so the archive root holds BepInEx/... and SPT/... (standard SPT layout)
+          # Zip the contents of Build/ so the archive root holds BepInEx/... and SPT_Runtime/... (standard SPT layout)
           ( cd Build && zip -r "../$ZIP_NAME" . )
           echo "zip_name=$ZIP_NAME" >> "$GITHUB_OUTPUT"
 
@@ -68,7 +68,7 @@ jobs:
           # One path per line. Add more files here and each gets its own link below.
           files: |
             Build/BepInEx/plugins/archangelwtf-contentbackportprestiges/ContentBackportPrestigesClient.dll
-            Build/SPT/user/mods/archangelwtf-contentbackportprestiges/ContentBackportPrestigesServer.dll
+            Build/SPT_Runtime/user/mods/archangelwtf-contentbackportprestiges/ContentBackportPrestigesServer.dll
 
       - name: Build release notes
         id: notes
