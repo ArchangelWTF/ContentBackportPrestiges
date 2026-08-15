@@ -7,6 +7,7 @@ using SPTarkov.Server.Core.Helpers.Profile;
 using SPTarkov.Server.Core.Helpers.Server;
 using SPTarkov.Server.Core.Models.Common;
 using SPTarkov.Server.Core.Models.Eft.Common.Tables;
+using SPTarkov.Server.Core.Models.Enums;
 using SPTarkov.Server.Core.Models.Spt.Tables;
 using SPTarkov.Server.Core.Routers;
 using SPTarkov.Server.Core.Utils;
@@ -34,6 +35,20 @@ public sealed class PreSPTLoad(
         {
             { new MongoId("68d3ddb4fc101237e601d774"), new MongoId("68d3fe84757f8967ec09099b") },
             { new MongoId("68d3e6f46a7ba36646713fa6"), new MongoId("68d3ff840531ed76e808866c") },
+        };
+
+    private static MongoId CollectorQuestId { get; } = new MongoId("5c51aac186f77432ea65c552");
+
+    private static Dictionary<MongoId, MongoId> CollectorLoyaltyRequirements { get; } =
+        new Dictionary<MongoId, MongoId>
+        {
+            { Traders.THERAPIST, new MongoId("c330d074ea6176518c49bb64") },
+            { Traders.PRAPOR, new MongoId("bd4e7b7687fc289f84e1e32b") },
+            { Traders.PEACEKEEPER, new MongoId("6089903033045a46e84a95a0") },
+            { Traders.MECHANIC, new MongoId("8899567e7ce6c96a2006426f") },
+            { Traders.JAEGER, new MongoId("1afaa330038831a5a30065e5") },
+            { Traders.SKIER, new MongoId("db6619ebb94a6b54262bb2c4") },
+            { Traders.RAGMAN, new MongoId("8f859a0bdedc98e63feac94e") },
         };
 
     public async Task OnLoadAsync(CancellationToken cancellationToken = default)
@@ -106,6 +121,9 @@ public sealed class PreSPTLoad(
         // Add new streamer items to collector quest
         HandleNewCollectorItems();
 
+        // Swap collector over to the reworked unlock requirements
+        HandleNewCollectorRequirements();
+
         // Remove rewards out of various achievements
         RemoveRewardsOutOfAchievements();
 
@@ -136,7 +154,7 @@ public sealed class PreSPTLoad(
     {
         var quests = templateTable.Quests;
 
-        if (quests.TryGetValue("5c51aac186f77432ea65c552", out Quest? collectorQuest))
+        if (quests.TryGetValue(CollectorQuestId, out Quest? collectorQuest))
         {
             if (collectorQuest is null || collectorQuest.Conditions.AvailableForFinish is null)
             {
@@ -301,6 +319,102 @@ public sealed class PreSPTLoad(
                 }
             );
         }
+    }
+
+    private void HandleNewCollectorRequirements()
+    {
+        if (
+            !templateTable.Quests.TryGetValue(CollectorQuestId, out Quest? collectorQuest)
+            || collectorQuest?.Conditions.AvailableForStart is null
+        )
+        {
+            return;
+        }
+
+        var conditions = collectorQuest.Conditions.AvailableForStart;
+        conditions.Clear();
+
+        foreach (var (traderId, conditionId) in CollectorLoyaltyRequirements)
+        {
+            conditions.Add(CreateTraderCondition(conditionId, "TraderLoyalty", traderId, 4));
+        }
+
+        // Scav karma of at least +3
+        conditions.Add(CreateTraderCondition(new MongoId("d7c44fe55201a9977a76daec"), "TraderStanding", Traders.FENCE, 3));
+
+        // Chemical - Part 4, or Big Customer, or Out of Curiosity
+        conditions.Add(
+            CreateQuestCondition(
+                new MongoId("ec97d9bee20f09cb2611bef8"),
+                new MongoId("597a0f5686f774273b74f676"),
+                [QuestStatusEnum.Success, QuestStatusEnum.Fail]
+            )
+        );
+
+        // Sew it Good - Part 2
+        conditions.Add(
+            CreateQuestCondition(
+                new MongoId("25c638ef25825acbc33b5c73"),
+                new MongoId("5ae4495c86f7744e87761355"),
+                [QuestStatusEnum.Success]
+            )
+        );
+
+        // A Shooter Born in Heaven
+        conditions.Add(
+            CreateQuestCondition(
+                new MongoId("7ec597358db2c9929174247b"),
+                new MongoId("5c0bde0986f77479cf22c2f8"),
+                [QuestStatusEnum.Success]
+            )
+        );
+
+        // The Tarkov Shooter - Part 4
+        conditions.Add(
+            CreateQuestCondition(
+                new MongoId("64c7a6b90a82102822f73e57"),
+                new MongoId("5bc480a686f7741af0342e29"),
+                [QuestStatusEnum.Success]
+            )
+        );
+
+        for (var index = 0; index < conditions.Count; index++)
+        {
+            conditions[index].Index = index;
+        }
+    }
+
+    private static QuestCondition CreateTraderCondition(MongoId conditionId, string conditionType, MongoId traderId, double value)
+    {
+        return new QuestCondition
+        {
+            Id = conditionId,
+            ConditionType = conditionType,
+            CompareMethod = ">=",
+            Value = value,
+            Target = new ListOrT<string>(null, traderId),
+            GlobalQuestCounterId = "",
+            ParentId = "",
+            DynamicLocale = false,
+            VisibilityConditions = [],
+        };
+    }
+
+    private static QuestCondition CreateQuestCondition(MongoId conditionId, MongoId questId, HashSet<QuestStatusEnum> status)
+    {
+        return new QuestCondition
+        {
+            Id = conditionId,
+            ConditionType = "Quest",
+            Status = status,
+            Target = new ListOrT<string>(null, questId),
+            AvailableAfter = 0,
+            Dispersion = 0,
+            GlobalQuestCounterId = "",
+            ParentId = "",
+            DynamicLocale = false,
+            VisibilityConditions = [],
+        };
     }
 
     private void RemoveRewardsOutOfAchievements()
