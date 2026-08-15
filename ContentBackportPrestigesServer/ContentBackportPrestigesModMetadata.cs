@@ -14,7 +14,7 @@ public sealed record ContentBackportPrestigesModMetadata : IModMetadata
     public Range SptVersion { get; init; } = new("~4.1");
     public List<string>? Incompatibilities { get; init; } = [];
     public Dictionary<string, Range>? ModDependencies { get; init; } =
-        new() { { "com.wtt.commonlib", new Range("^3.0") }, { "com.wtt.contentbackport", new Range("1.1.3") } };
+        new() { { "com.wtt.commonlib", new Range("^3.0") }, { "com.wtt.contentbackport", new Range("~2.0") } };
     public string? Url { get; init; } = "https://github.com/ArchangelWTF/ContentBackportPrestiges";
     public bool? IsBundleMod { get; init; } = false;
     public string License { get; init; } = "MIT";
