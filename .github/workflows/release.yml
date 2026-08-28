@@ -14,6 +14,8 @@ on:
 
 env:
   MOD_NAME: ContentBackportPrestiges
+  PLUGIN_DIR: Build/BepInEx/plugins/archangelwtf-contentbackportprestiges
+  SERVER_MOD_DIR: Build/SPT_Runtime/user/mods/archangelwtf-contentbackportprestiges
 
 jobs:
   release:
@@ -51,6 +53,11 @@ jobs:
       - name: Build (Release)
         run: dotnet build --configuration Release --no-restore -p:Version=${{ steps.version.outputs.version }}
 
+      - name: Copy license
+        run: |
+          cp LICENSE.md "$PLUGIN_DIR/LICENSE.md"
+          cp LICENSE.md "$SERVER_MOD_DIR/LICENSE.md"
+
       - name: Package
         id: package
         shell: bash
@@ -67,8 +74,8 @@ jobs:
           vt_api_key: ${{ secrets.VIRUSTOTAL_API_KEY }}
           # One path per line. Add more files here and each gets its own link below.
           files: |
-            Build/BepInEx/plugins/archangelwtf-contentbackportprestiges/ContentBackportPrestigesClient.dll
-            Build/SPT_Runtime/user/mods/archangelwtf-contentbackportprestiges/ContentBackportPrestigesServer.dll
+            ${{ env.PLUGIN_DIR }}/ContentBackportPrestigesClient.dll
+            ${{ env.SERVER_MOD_DIR }}/ContentBackportPrestigesServer.dll
 
       - name: Build release notes
         id: notes
